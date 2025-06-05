@@ -1,62 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
-  <title>Хавфсиз ҳудуд</title>
-  <style>
-    body {
-      padding: 20px 60px 50px 60px;
-    }
-
-    .boc {
-      overflow-y: scroll;
-      max-height: 750px;
-    }
-
-    thead {
-      font-size: 20px;
-    }
-
-    table {
-      border-top: 1px solid black;
-    }
-
-    tbody {
-      height: 100%;
-      max-height: 600px;
-      font-size: 18px;
-    }
-
-    h1 {
-      margin-bottom: 30px;
-    }
-
-    th:not(:last-child) {
-      border-right: 1px solid black;
-    }
-  </style>
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="./src/styles/style.css">
+  <title>Mahalla Tasks Dashboard</title>
 </head>
 
 <body>
+  <div class="container">
+    <header>
+      <h1>Маҳалла вазифалари дашборди</h1>
+      <p>Маҳаллалар бўйича вазифалар ва натижалар</p>
+    </header>
 
-  <h1 class="text-center">Хавфсиз ҳудуд</h1>
+    <div class="dashboard">
 
-  <div class="boc">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col" style="width: 20%;">МФЙ Номи</th>
-          <th scope="col" style="width: 75%;">Таск Техт</th>
-          <th scope="col">Тотал</th>
-        </tr>
-      </thead>
-      <tbody id="table-body">
 
-      </tbody>
-    </table>
+      <div class="main-content">
+        <div class="filters">
+          <button class="btn" id="showAllBtn">Барча натижалар</button>
+          <button class="btn btn-secondary" id="showTopBtn">Энг юқори натижалар</button>
+        </div>
+
+        <div id="taskDetails" class="task-details" style="display: none;">
+          <div class="task-title" id="taskTitle"></div>
+          <div class="task-description" id="taskDescription"></div>
+        </div>
+
+        <div id="resultsContainer">
+          <div id="region-select-container">
+            <p>Маҳалла Номи</p>
+            <div id="region-select-box"></div>
+            <div class="summary-stats" id="summary">
+              <!-- Summary statistics will be populated here -->
+            </div>
+          </div>
+          <table class="results-table table table-striped" id="resultsTable">
+            <thead>
+              <tr>
+                <th data-sort="tasks">Вазифалар</th>
+                <th data-sort="results">Натижа</th>
+              </tr>
+            </thead>
+            <tbody id="table-body">
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script type="module" src="./src/script.js"></script>
